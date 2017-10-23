@@ -1,21 +1,21 @@
 # Pooly
 
-**TODO: Add description**
+**A worker pool application (Poolboy library designe has been adapted for this example)**
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pooly` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:pooly, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pooly](https://hexdocs.pm/pooly).
-
+| Version | Characteristics          |
+| :-----: | -------------------------|
+|   |                                |
+|   | Supports a single pool. |
+| 1 | Supports a fixed number of workers. |
+|   | No recovery when consumer and/or worker process fail  |
+|   |                                |
+|   | Supports a single pool. |
+| 2 | Supports a fixed number of workers. |
+|   | Recovery when consumer and/or worker process fail. |
+|   |                                |
+| 3 | Supports multiple pools. |
+|   | Supports a variable number of workers |
+|   |                                |
+|   | Supports multiple pools. |
+| 4 | Variable-sized pool allows for worker overflow. |
+|   | Queuing for consumer processes when all workers are busy |
