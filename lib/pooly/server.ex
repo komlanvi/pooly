@@ -44,12 +44,23 @@ defmodule Pooly.Server do
   ###########
   # HELPERS #
   ###########
-  def supervisor_spec(mfa) do
+  defp supervisor_spec(mfa) do
     supervisor_opts = [restart: :temporary]
     supervisor({Pooly.WorkerSupervisor, [mfa], supervisor_opts})
   end
 
-  def prepopulate(size, worker_sup) do
+  defp prepopulate(size, worker_sup) do
+    prepopulate(size, worker_sup, [])
+  end
+  defp prepopulate(size, worker_sup, workers) when size < 1 do
+    workers
+  end
+  defp prepopulate(size, worker_sup, workers) when size > 0 do
+    prepopulate(size-1, worker_sup, [new_worker(worker_sup) | workers])
+  end
 
+  defp new_worker(worker_sup) do
+    {:ok, worker_pid} = Supervisor.start_child(worker_sup, [[]])
+    worker_pid
   end
 end
