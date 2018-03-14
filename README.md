@@ -1,6 +1,6 @@
 # Pooly
 
-**A worker pool application (Poolboy library designe has been adapted for this example)**
+**A worker pool application (Inspired by Poolboy library)**
 
 | Version | Characteristics          |
 | :-----: | -------------------------|
